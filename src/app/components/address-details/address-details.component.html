@@ -1,0 +1,76 @@
+<form [formGroup]="addressDetailsForm">
+    <div class="form-group"> 
+        <label>Country:-</label>                                         
+        <select  class="form-control-user"  name="state" id="countySel" size="1" formControlName="Country">
+            <option value="" selected="selected">Select Country</option>   
+          </select>   
+        <label>State:-</label>    
+        <select name="countrya" id="stateSel" size="1" class="form-control-user" formControlName="State">
+            <option value="" selected="selected">Please select Country first</option>  
+          </select>                                               
+    </div>                                     
+    <div *ngIf="(f.Country.invalid && f.Country.touched) || f.Country.dirty"
+        style=" text-align: center; padding: 0px 0px 15px;">
+            <small *ngIf="f.Country.errors?.required" class="text-danger">Country is
+                  required</small>
+    </div>  
+    <div *ngIf="(f.State.invalid && f.State.touched) || f.State.dirty"
+    style=" text-align: center; padding: 0px 0px 15px;">
+        <small *ngIf="f.State.errors?.required" class="text-danger">State is
+        required</small>
+    </div>                                                                           
+    <div class="form-group">  
+        <label>District:-</label>                                    
+        <select  name="district" id="districtSel" size="1" class="form-control-user" formControlName="District">
+            <option value="" selected="selected">Please select State first</option> 
+          </select>
+        <label>Police Station:-</label>   
+        <select id="cars" name="cars" class="form-control-user" formControlName="PoliceStation">
+            <option value="volvo">policestation</option>
+            <option value="Afganistan">policestation</option>
+            <option value="Brazil">policestation</option>  
+            <option value="China">policestation</option>                
+          </select>   
+        <label>Street:-</label>    
+        <input type="text" class="form-control form-control-user" formControlName="Street"
+           placeholder="">                                                                                          
+    </div>                                   
+    <div *ngIf="(f.District.invalid && f.District.touched) || f.District.dirty"
+      style=" text-align: center; padding: 0px 0px 15px;">
+        <small *ngIf="f.District.errors?.required" class="text-danger">District is
+        required</small>
+    </div> 
+    <div *ngIf="(f.PoliceStation.invalid && f.PoliceStation.touched) || f.PoliceStation.dirty"
+    style=" text-align: center; padding: 0px 0px 15px;">
+        <small *ngIf="f.PoliceStation.errors?.required" class="text-danger">Police Station is
+        required</small>
+    </div>
+    <div *ngIf="(f.Street.invalid && f.Street.touched) || f.Street.dirty"
+    style=" text-align: center; padding: 0px 0px 15px;">
+        <small *ngIf="f.Street.errors?.required" class="text-danger">Street is
+        required</small>
+    </div>                                                                              
+    <div class="form-group"> 
+        <label>House/Flat Number:-</label>                                          
+        <input type="text" class="form-control form-control-user" formControlName="HouseNo"
+              placeholder=""> 
+        <label>Lane no:-</label>   
+        <input type="text" class="form-control form-control-user" formControlName="Lane"
+           placeholder="">                                                                                            
+    </div>
+    
+    <div *ngIf="(f.HouseNo.invalid && f.HouseNo.touched) || f.HouseNo.dirty"
+     style=" text-align: center; padding: 0px 0px 15px;">
+        <small *ngIf="f.HouseNo.errors?.required" class="text-danger">House no is
+        required</small>
+        <small class="text-danger" *ngIf="f.HouseNo.errors?.pattern">Please provide a valid House no
+        </small>
+    </div>
+    <div *ngIf="(f.Lane.invalid && f.Lane.touched) || f.Lane.dirty"
+           style=" text-align: center; padding: 0px 0px 15px;">
+           <small *ngIf="f.Lane.errors?.required" class="text-danger">Lane No is
+               required</small>
+           <small class="text-danger" *ngIf="f.Lane.errors?.pattern">Please provide a valid Lane No
+           </small>
+    </div>
+</form>

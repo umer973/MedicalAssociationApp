@@ -1,0 +1,33 @@
+<form [formGroup]="contactDetailsForm">                                       
+    <div class="form-group">  
+        <label>Email Id:-</label>                                     
+        <input type="text"  formControlName="EmailId" class="form-control form-control-user"
+            placeholder="">                                      
+        <label>Mobile No:-</label>   
+        <input type="text" class="form-control form-control-user" 
+        formControlName="ContactNo"  placeholder="">                                       
+        <label>Land Line No:-</label>   
+        <input type="text" class="form-control form-control-user" formControlName="LandlineNo"
+              placeholder="">                             
+    </div>                                   
+    <div *ngIf="(f.EmailId.invalid && f.EmailId.touched) || f.EmailId.dirty"
+            style=" text-align: center; padding: 0px 0px 15px;">
+            <small *ngIf="f.EmailId.errors?.required" class="text-danger">Email is required</small>
+            <small class="text-danger" *ngIf="f.EmailId.errors?.pattern">Please provide a valid email
+                address</small>
+    </div>
+    <div *ngIf="(f.ContactNo.invalid && f.ContactNo.touched) || f.ContactNo.dirty"
+           style=" text-align: center; padding: 0px 0px 15px;">
+           <small *ngIf="f.ContactNo.errors?.required" class="text-danger">Contact No is
+               required</small>
+           <small class="text-danger" *ngIf="f.ContactNo.errors?.pattern">Please provide a valid Contact No
+                   </small>
+    </div>
+    <div *ngIf="(f.LandlineNo.invalid && f.LandlineNo.touched) || f.LandlineNo.dirty"
+              style=" text-align: center; padding: 0px 0px 15px;">
+            <small *ngIf="f.LandlineNo.errors?.required" class="text-danger">Landline No is
+                  required</small>
+            <small class="text-danger" *ngIf="f.LandlineNo.errors?.pattern">Please provide a valid Landline No
+            </small>
+    </div> 
+</form>

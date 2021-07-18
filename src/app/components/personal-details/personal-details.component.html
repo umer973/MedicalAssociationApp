@@ -1,0 +1,117 @@
+<form [formGroup]="personalDetailsForm">                                       
+
+    <div class="form-group">
+        <label>Name:-</label>                                       
+        <input type="text"  formControlName="FirstName" class="form-control form-control-user"
+         placeholder= "First Name">                                            
+        <input type="text" class="form-control form-control-user" formControlName="MiddleName"
+           placeholder="Middle Name">                                              
+        <input type="text" class="form-control form-control-user"  formControlName="LastName"
+        placeholder="Last Name">                                                                              
+    </div>   
+    <div *ngIf="(f.FirstName.invalid && f.FirstName.touched) || f.FirstName.dirty" style="text-align: center;
+     padding: 0px 0px 15px;">
+        <small *ngIf="f.FirstName.errors?.required" class="text-danger">First Name is required</small>
+        <small class="text-danger" *ngIf="f.FirstName.errors?.pattern">Please provide a valid name</small>                               
+    </div>
+    <div *ngIf="(f.MiddleName.invalid && f.MiddleName.touched) || f.MiddleName.dirty"  style="text-align: center;
+    padding: 0px 0px 15px;">
+        <small *ngIf="f.MiddleName.errors?.required" class="text-danger">Middle name is required</small>
+        <small class="text-danger" *ngIf="f.MiddleName.errors?.pattern">Please provide a valid name</small>                               
+    </div>
+    <div *ngIf="(f.LastName.invalid && f.LastName.touched) || f.LastName.dirty"  style="text-align: center;
+    padding: 0px 0px 15px;">
+        <small *ngIf="f.LastName.errors?.required" class="text-danger">Last name is required</small>
+        <small class="text-danger" *ngIf="f.LastName.errors?.pattern">Please provide a valid name</small>                               
+    </div>                                                                           
+    <div class="form-group"> 
+        <label>Father's Name:-</label>                                      
+        <input type="text"  formControlName="FatherName" class="form-control form-control-user"
+        placeholder="First Name">                                        
+        <input type="text"  formControlName="FatherFirstName" class="form-control form-control-user"
+           placeholder="Middle Name">                                          
+        <input type="text" class="form-control form-control-user" formControlName="FatherMiddleName"
+           placeholder="Last Name">                                                                                   
+    </div>                                     
+    <div *ngIf="(f.FatherName.invalid && f.FatherName.touched) || f.FatherName.dirty" style="text-align: center;
+    padding: 0px 0px 15px;">
+        <small *ngIf="f.FatherName.errors?.required" class="text-danger">First name is required</small>
+        <small class="text-danger" *ngIf="f.FatherName.errors?.pattern">Please provide a valid name</small>                               
+    </div>  
+    <div *ngIf="(f.FatherFirstName.invalid && f.FatherFirstName.touched) || f.FatherFirstName.dirty" style="text-align: center;
+    padding: 0px 0px 15px;">
+        <small *ngIf="f.FatherFirstName.errors?.required" class="text-danger">Middle name is required</small>
+        <small class="text-danger" *ngIf="f.FatherFirstName.errors?.pattern">Please provide a valid name</small>                               
+    </div>  
+    <div *ngIf="(f.FatherMiddleName.invalid && f.FatherMiddleName.touched) || f.FatherMiddleName.dirty" style="text-align: center;
+    padding: 0px 0px 15px;">
+        <small *ngIf="f.FatherMiddleName.errors?.required" class="text-danger">Last name is required</small>
+        <small class="text-danger" *ngIf="f.FatherMiddleName.errors?.pattern">Please provide a valid name</small>                               
+    </div>   
+    <div class="form-group">  
+        <label>Company:-</label>                                      
+        <select  class="form-control-user" formControlName="CompanyId">
+            <option value="cmpny">company</option>
+            <option value="cmpny2">company</option>
+            <option value="cmpny3">company</option>  
+            <option value="cmpny4">company</option> 
+            <option value="cmpny5">company</option>
+            <option value="cmpny6">company</option> 
+            <option value="cmpny7">company</option>
+            <option value="cmpny8">company</option>
+          </select>
+        <label>Division:-</label>   
+        <select  class="form-control-user" formControlName="DivisionId"> 
+            <option value="divsn">division</option>
+            <option value="divsn2">division</option>
+            <option value="divsn3">division</option>  
+            <option value="divsn4">division</option>                      
+          </select>   
+        <label>Designation:-</label>    
+        <select class="form-control-user" formControlName="DesignationId">
+            <option value="dsgn">designation</option>
+            <option value="dsgn2">designation</option>
+            <option value="dsgn3">designation</option>  
+            <option value="dsgn4">designation</option> 
+            <option value="dsgn5">designation</option>
+            <option value="dsgn6">designation</option> 
+            <option value="dsgn7">designation</option>
+            <option value="dsgn8">designation</option>   
+          </select>
+    </div>                                   
+    <div *ngIf="(f.CompanyId.invalid && f.CompanyId.touched) || f.CompanyId.dirty"
+     style=" text-align: center; padding: 0px 0px 15px;">
+        <small *ngIf="f.CompanyId.errors?.required" class="text-danger">Company is
+        required</small>
+    </div>
+    <div *ngIf="(f.DivisionId.invalid && f.DivisionId.touched) || f.DivisionId.dirty"
+     style=" text-align: center; padding: 0px 0px 15px;">
+        <small *ngIf="f.DivisionId.errors?.required" class="text-danger">Division is
+        required</small>
+    </div>
+    <div *ngIf="(f.DesignationId.invalid && f.DesignationId.touched) || f.DesignationId.dirty"
+     style=" text-align: center; padding: 0px 0px 15px;">
+        <small *ngIf="f.DesignationId.errors?.required" class="text-danger">Designation is
+        required</small>
+    </div>                                                                                                         
+    <div class="form-group">  
+        <label>Employee code:-</label>                                     
+        <input type="text"  class="form-control form-control-user" formControlName="EmpCode"
+            placeholder="">
+        <label>Date of joining:-</label>   
+        <input type="date" class="form-control form-control-user" formControlName="DateofJoining"
+           placeholder="">
+    </div>                                   
+    <div *ngIf="(f.EmpCode.invalid && f.EmpCode.touched) || f.EmpCode.dirty"
+     style=" text-align: center; padding: 0px 0px 15px;">
+        <small *ngIf="f.EmpCode.errors?.required" class="text-danger">Employee code is
+        required</small>
+        <small class="text-danger" *ngIf="f.EmpCode.errors?.pattern">Please provide a valid Employee code
+        </small>
+    </div>
+    <div *ngIf="(f.DateofJoining.invalid && f.DateofJoining.touched) || f.DateofJoining.dirty"
+     style=" text-align: center; padding: 0px 0px 15px;">
+        <small *ngIf="f.DateofJoining.errors?.required" class="text-danger">Joining is
+        required</small>
+    </div>
+</form>  

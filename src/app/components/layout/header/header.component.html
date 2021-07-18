@@ -1,0 +1,76 @@
+<!-- Sidebar -->
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#/layout/dashboard">
+        <div class="sidebar-brand-icon rotate-n-15">
+        </div>
+        <div class="sidebar-brand-text mx-3">Admin</div>
+    </a>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item" [ngClass]="getdropdown(menu.MenuName)" *ngFor="let menu of menus">
+        <a class="nav-link collapsed" (click)="navigate_menu(menu.MenuName)">
+            <i [ngClass]="getIcon(menu.MenuName)" style="margin-right: 10px;"></i>
+            <span>{{menu.MenuName}} </span> <span [ngClass]="getClass(menu.MenuName)"></span>
+        </a>
+        <ng-container *ngIf="menu.MenuName=='Other Pages'">
+            <div id="collapsePages" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" (click)="navigate_sub(sub.PageName)" *ngFor="let sub of menu.Pages">{{sub.PageName}}</a>
+                </div>
+            </div>
+        </ng-container>
+    </li>
+    <!-- <li class="nav-item">
+        <a class="nav-link collapsed">
+            <i class="fa fa-upload"></i>
+            <span (click)="navigate_upload()">File upload</span>
+        </a>
+    </li> -->
+
+    <!-- Nav Item - Pages Collapse Menu 
+    <li class="nav-item">
+        <a class="nav-link" routerlink="/layout/testimonials">
+            <i class="fa fa-file"></i>
+            <span>Testimonials</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="blank.html">
+            <i class="fa fa-file"></i>
+            <span>Clients</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="blank.html">
+            <i class="fa fa-file"></i>
+            <span>Customers</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" >
+            <i class="fa fa-file"></i>
+            <span (click)="navigate()">Partners</span>
+        </a>
+    </li>-->
+    <!-- Divider -->
+    <!-- <hr class="sidebar-divider"> -->
+    <!-- Nav Item - Pages Collapse Menu -->
+
+    <!-- <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+            aria-expanded="true" aria-controls="collapsePages">
+            <i class="fa fa-fw fa-folder"></i>
+            <span>Other Pages</span>
+        </a>
+    </li> -->
+    
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+</ul>
+<!-- End of Sidebar -->
