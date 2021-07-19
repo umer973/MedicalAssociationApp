@@ -12,7 +12,10 @@ import { ToastContainerModule, ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PersonalDetailsComponent } from './components/personal-details/personal-details.component';
 import { AddressDetailsComponent } from './components/address-details/address-details.component';
-import { ContactDetailsComponent } from './components/contact-details/contact-details.component'
+import { ContactDetailsComponent } from './components/contact-details/contact-details.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { ContactDetailsComponent } from './components/contact-details/contact-de
     SpinnerComponent,
     PersonalDetailsComponent,
     AddressDetailsComponent,
-    ContactDetailsComponent
+    ContactDetailsComponent,
+    
+   
+    
   ],
   imports: [
     BrowserModule,

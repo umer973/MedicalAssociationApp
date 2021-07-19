@@ -14,14 +14,14 @@
                                     <h1 class="h4 text-gray-900 mb-4">Register Yourself</h1>
                                 </div>
                                 <!-- <form [formGroup]="userform" class="user"> -->
-                                <app-personal-details [personalDetailsForm]="userform.get('personalDetailsForm')"></app-personal-details>           
-                                <app-address-details [addressDetailsForm]="userform.get('addressDetailsForm')"></app-address-details>                                                                                                            
-                                <app-contact-details [contactDetailsForm]="userform.get('contactDetailsForm')"></app-contact-details>
+                                <app-personal-details [personalDetailsForm]="userform.get('PersonalDetails')"></app-personal-details>           
+                                <app-address-details [addressDetailsForm]="userform.get('AddressDetails')"></app-address-details>                                                                                                            
+                                <app-contact-details [contactDetailsForm]="userform.get('ContactDetails')"></app-contact-details>
                                     <div class="chckbx"> 
                                         <input type="checkbox"  value="check" required/>
                                         <p> I have read and agree to the Terms and Conditions and Privacy Policy</p>
                                     </div>
-                                    <button type="submit" class="btn btn-primary btn-user btn-block"  [disabled]="!userform.valid" (click)="onSubmit()" 
+                                    <button type="submit" class="btn btn-primary btn-user btn-block"   (click)="onSubmit()" 
                                     style="margin-bottom: 8%;margin-top: 4%;">
                                         Register
                                     </button>                                                                                                 

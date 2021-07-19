@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Register } from 'src/app/models/register.model';
+import { PersonalDetails, Register } from 'src/app/models/register.model';
 import { CommonService } from 'src/app/services/common.service';
 import { NotificationService } from 'src/app/services/notification.service';
 import { MessageType } from 'src/app/enums/messagetype.enum';
@@ -18,6 +18,8 @@ export class RegisterComponent implements OnInit {
   register: Register;
   imageURL: string;
   isSubmitted: false;
+  
+
 
   constructor(private formBuilder: FormBuilder,
     private router: Router,
@@ -31,8 +33,8 @@ export class RegisterComponent implements OnInit {
 
   createFormControls() {
     this.userform = this.formBuilder.group({
-      personalDetailsForm: this.formBuilder.group({
-        RegistrationNo: new FormControl(['',]),
+      PersonalDetails: this.formBuilder.group({
+        RegistrationNo: [''],
         ProfilePic: [''],
         FirstName: ['', [Validators.required, Validators.pattern("[a-zA-Z ]*")]],
         MiddleName: ['', [Validators.required, Validators.pattern("[a-zA-Z ]*")]],
@@ -47,7 +49,7 @@ export class RegisterComponent implements OnInit {
         DateofJoining: ['', Validators.required]
       }),
 
-      addressDetailsForm: this.formBuilder.group({
+      AddressDetails: this.formBuilder.group({
         Country: new FormControl(['', Validators.required]),
         State: ['', Validators.required],
         District: ['', Validators.required],
@@ -57,7 +59,7 @@ export class RegisterComponent implements OnInit {
         Lane: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(5), Validators.pattern("[0-9]*$")]],
       }),
 
-      contactDetailsForm: this.formBuilder.group({
+      ContactDetails: this.formBuilder.group({
         EmailId: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
         ContactNo: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(11), Validators.pattern("[0-9]*$")]],
         LandlineNo: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(11), Validators.pattern("[0-9]*$")]]

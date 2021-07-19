@@ -51,32 +51,19 @@
     <div class="form-group">  
         <label>Company:-</label>                                      
         <select  class="form-control-user" formControlName="CompanyId">
-            <option value="cmpny">company</option>
-            <option value="cmpny2">company</option>
-            <option value="cmpny3">company</option>  
-            <option value="cmpny4">company</option> 
-            <option value="cmpny5">company</option>
-            <option value="cmpny6">company</option> 
-            <option value="cmpny7">company</option>
-            <option value="cmpny8">company</option>
+            <option value="1">company</option>
+            
           </select>
         <label>Division:-</label>   
         <select  class="form-control-user" formControlName="DivisionId"> 
-            <option value="divsn">division</option>
-            <option value="divsn2">division</option>
-            <option value="divsn3">division</option>  
-            <option value="divsn4">division</option>                      
+            <option value="1">division</option>
+                              
           </select>   
         <label>Designation:-</label>    
         <select class="form-control-user" formControlName="DesignationId">
-            <option value="dsgn">designation</option>
-            <option value="dsgn2">designation</option>
-            <option value="dsgn3">designation</option>  
-            <option value="dsgn4">designation</option> 
-            <option value="dsgn5">designation</option>
-            <option value="dsgn6">designation</option> 
-            <option value="dsgn7">designation</option>
-            <option value="dsgn8">designation</option>   
+            <option value="1">designation</option>
+            <option value="1">designation</option>
+              
           </select>
     </div>                                   
     <div *ngIf="(f.CompanyId.invalid && f.CompanyId.touched) || f.CompanyId.dirty"

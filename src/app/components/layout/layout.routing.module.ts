@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from "@angular/router";
 import { CommonModule } from '@angular/common';
 import { LayoutComponent } from "./layout.component";
+import { ProfileComponent } from '../profile/profile.component';
 
 const routes: Routes = [
   {
@@ -11,14 +12,14 @@ const routes: Routes = [
   },
   {
     path: 'dashboard',component: LayoutComponent,
-    // children:[
-    //   { path:'partner',component:PartnerComponent},
+    children:[
+      { path:'profile',component:ProfileComponent},
     //   { path: 'testimonials', component: TestimonialsComponent },
     //   { path: 'fileupload', component: FileuploadComponent },
     //   { path: 'clients', component: ClientsComponent },
     //   { path: 'dailog', component: CommondialogComponent}
     
-    // ]
+     ]
   }
   
 ];
