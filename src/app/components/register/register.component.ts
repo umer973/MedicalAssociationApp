@@ -10,6 +10,7 @@ import { SpinnerService } from 'src/app/services/spinner.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 
 })
 export class RegisterComponent implements OnInit {
@@ -17,7 +18,7 @@ export class RegisterComponent implements OnInit {
   userform: FormGroup;
   register: Register;
   imageURL: string;
-  isSubmitted: false;
+  submitted = false;
   
 
 
@@ -73,13 +74,14 @@ export class RegisterComponent implements OnInit {
   get f() { return this.userform.controls }
 
   onSubmit() {
+    this.submitted = true;
     // this.router.navigateByUrl('/login');
     if (this.userform.valid) {
 
       this.register = this.userform.getRawValue();
 
       this.spinnerService.show();
-
+     
       this.service.Register(this.register).subscribe(res => {
         console.log(res);
         let result: any = res;
@@ -89,6 +91,8 @@ export class RegisterComponent implements OnInit {
 
             this.notificationservice.showSuccess(MessageType.Save, "Radix");
             this.router.navigateByUrl('/login');
+            // display form values on success
+        alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.userform.value, null, 4));
             this.userform.reset();
           }
           else {

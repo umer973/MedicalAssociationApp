@@ -1,0 +1,26 @@
+.form-group > input{
+    margin-bottom: 15px;
+}
+.company{
+   display: flex;
+   margin-top: 25px;
+}
+.company select {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.is-invalid,
+.invalid-feedback
+{
+    border-color: #dc3545;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;  
+    display :initial;
+
+}
+/* select > option:hover,
+select > option:active,
+select > option:focus {
+ background-color: none;
+} */

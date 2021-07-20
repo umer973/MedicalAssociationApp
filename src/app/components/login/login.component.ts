@@ -10,12 +10,13 @@ import { MessageType } from 'src/app/enums/messagetype.enum';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
   
   userform: FormGroup;
   user: Login;
-  isSubmitted: false;
+  submitted=  false;
   constructor(private formBuilder: FormBuilder,
     private router: Router, 
     private spinnerService: SpinnerService,  
@@ -37,6 +38,7 @@ export class LoginComponent implements OnInit {
   get f() { return this.userform.controls }
   
   onSubmit() {
+    this.submitted = true;
     // this.spinnerService.show();
     // this.router.navigateByUrl('/layout/dashboard');
 

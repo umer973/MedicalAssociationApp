@@ -10,6 +10,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 export class PersonalDetailsComponent implements OnInit {
 
   @Input() personalDetailsForm:FormGroup;
+  @Input() submitted;
   constructor() { }
 
   ngOnInit(): void {

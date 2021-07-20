@@ -1,0 +1,24 @@
+.register{
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175) !important;
+    width: 90%;
+    margin: auto;
+    padding: 10px;
+    float: none;
+}
+.register .chckbx{
+    display: flex;
+    justify-content: center;
+}
+.register .chckbx input {
+    margin: 5px;
+}
+.is-invalid,
+.invalid-feedback
+{
+    border-color: #dc3545;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;  
+    display :initial;
+
+}

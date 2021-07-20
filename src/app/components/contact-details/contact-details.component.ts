@@ -9,6 +9,7 @@ import { FormGroup } from '@angular/forms';
 export class ContactDetailsComponent implements OnInit {
 
   @Input() contactDetailsForm:FormGroup;
+  @Input() submitted;
   constructor() { }
 
   ngOnInit(): void {

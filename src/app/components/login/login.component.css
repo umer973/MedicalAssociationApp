@@ -1,0 +1,34 @@
+.login-row{
+    text-align: center;
+}
+.login-box{
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175) !important;
+    width: 40%;
+    padding: 20px 10px;
+    /* margin: auto; */
+}
+.login-box .login-box-msg{
+    padding-top: 10px;
+    font-size: 16px;
+}
+.login-row .login-btn{
+    width: 50%;
+    margin-left: auto;
+}
+.is-invalid,
+.invalid-feedback
+{
+    border-color: #dc3545;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;  
+    display :initial;
+
+}
+
+/*MEDIA QUERIES*/
+@media(max-width: 767px){
+    .login-box{
+        width: 80%;
+    }
+}

@@ -2,103 +2,89 @@
 
     <div class="form-group">
         <label>Name:-</label>                                       
-        <input type="text"  formControlName="FirstName" class="form-control form-control-user"
-         placeholder= "First Name">                                            
-        <input type="text" class="form-control form-control-user" formControlName="MiddleName"
-           placeholder="Middle Name">                                              
-        <input type="text" class="form-control form-control-user"  formControlName="LastName"
-        placeholder="Last Name">                                                                              
-    </div>   
-    <div *ngIf="(f.FirstName.invalid && f.FirstName.touched) || f.FirstName.dirty" style="text-align: center;
-     padding: 0px 0px 15px;">
-        <small *ngIf="f.FirstName.errors?.required" class="text-danger">First Name is required</small>
-        <small class="text-danger" *ngIf="f.FirstName.errors?.pattern">Please provide a valid name</small>                               
+        <input type="text"  formControlName="FirstName" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.FirstName.errors }" placeholder= "First Name">  
+        <div *ngIf="submitted && f.FirstName.errors" class="invalid-feedback">
+            <div *ngIf="f.FirstName.errors.required">First Name is required</div>
+        </div>
     </div>
-    <div *ngIf="(f.MiddleName.invalid && f.MiddleName.touched) || f.MiddleName.dirty"  style="text-align: center;
-    padding: 0px 0px 15px;">
-        <small *ngIf="f.MiddleName.errors?.required" class="text-danger">Middle name is required</small>
-        <small class="text-danger" *ngIf="f.MiddleName.errors?.pattern">Please provide a valid name</small>                               
-    </div>
-    <div *ngIf="(f.LastName.invalid && f.LastName.touched) || f.LastName.dirty"  style="text-align: center;
-    padding: 0px 0px 15px;">
-        <small *ngIf="f.LastName.errors?.required" class="text-danger">Last name is required</small>
-        <small class="text-danger" *ngIf="f.LastName.errors?.pattern">Please provide a valid name</small>                               
-    </div>                                                                           
+    <div class="form-group">
+        <input type="text" class="form-control" formControlName="MiddleName"
+        [ngClass]="{ 'is-invalid': submitted && f.MiddleName.errors }"  placeholder="Middle Name">   
+        <div *ngIf="submitted && f.MiddleName.errors" class="invalid-feedback">
+            <div *ngIf="f.MiddleName.errors.required">MiddleName is required</div>
+        </div>    
+    </div>  
+    <div class="form-group">                                              
+        <input type="text" class="form-control"  formControlName="LastName"
+        [ngClass]="{ 'is-invalid': submitted && f.LastName.errors }" placeholder="Last Name">    
+        <div *ngIf="submitted && f.LastName.errors" class="invalid-feedback">
+            <div *ngIf="f.LastName.errors.required">Last Name is required</div>
+        </div>                                                                          
+    </div>                                                                             
     <div class="form-group"> 
         <label>Father's Name:-</label>                                      
-        <input type="text"  formControlName="FatherName" class="form-control form-control-user"
-        placeholder="First Name">                                        
-        <input type="text"  formControlName="FatherFirstName" class="form-control form-control-user"
-           placeholder="Middle Name">                                          
-        <input type="text" class="form-control form-control-user" formControlName="FatherMiddleName"
-           placeholder="Last Name">                                                                                   
-    </div>                                     
-    <div *ngIf="(f.FatherName.invalid && f.FatherName.touched) || f.FatherName.dirty" style="text-align: center;
-    padding: 0px 0px 15px;">
-        <small *ngIf="f.FatherName.errors?.required" class="text-danger">First name is required</small>
-        <small class="text-danger" *ngIf="f.FatherName.errors?.pattern">Please provide a valid name</small>                               
+        <input type="text"  formControlName="FatherName" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.FatherName.errors }" placeholder="First Name">  
+        <div *ngIf="submitted && f.FatherName.errors" class="invalid-feedback">
+            <div *ngIf="f.FatherName.errors.required">First Name is required</div>
+        </div>
+    </div>
+    <div class="form-group"> 
+        <input type="text"  formControlName="FatherFirstName" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.FatherFirstName.errors }" placeholder="Middle Name"> 
+        <div *ngIf="submitted && f.FatherFirstName.errors" class="invalid-feedback">
+            <div *ngIf="f.FatherFirstName.errors.required">Middle Name is required</div>
+        </div>
     </div>  
-    <div *ngIf="(f.FatherFirstName.invalid && f.FatherFirstName.touched) || f.FatherFirstName.dirty" style="text-align: center;
-    padding: 0px 0px 15px;">
-        <small *ngIf="f.FatherFirstName.errors?.required" class="text-danger">Middle name is required</small>
-        <small class="text-danger" *ngIf="f.FatherFirstName.errors?.pattern">Please provide a valid name</small>                               
-    </div>  
-    <div *ngIf="(f.FatherMiddleName.invalid && f.FatherMiddleName.touched) || f.FatherMiddleName.dirty" style="text-align: center;
-    padding: 0px 0px 15px;">
-        <small *ngIf="f.FatherMiddleName.errors?.required" class="text-danger">Last name is required</small>
-        <small class="text-danger" *ngIf="f.FatherMiddleName.errors?.pattern">Please provide a valid name</small>                               
-    </div>   
-    <div class="form-group">  
+    <div class="form-group">                                              
+        <input type="text" class="form-control" formControlName="FatherMiddleName"
+        [ngClass]="{ 'is-invalid': submitted && f.FatherMiddleName.errors }" placeholder="Last Name">  
+        <div *ngIf="submitted && f.FatherMiddleName.errors" class="invalid-feedback">
+            <div *ngIf="f.FatherMiddleName.errors.required">Last Name is required</div>
+        </div>                                                                                    
+    </div>                                       
+    <div class="form-group company">  
         <label>Company:-</label>                                      
-        <select  class="form-control-user" formControlName="CompanyId">
-            <option value="1">company</option>
-            
-          </select>
+        <select  class="form-control" formControlName="CompanyId" 
+        [ngClass]="{ 'is-invalid': submitted && f.CompanyId.errors }">
+            <option value="1">company</option>           
+        </select>
+        <div *ngIf="submitted && f.CompanyId.errors" class="invalid-feedback">
+            <div *ngIf="f.CompanyId.errors.required">Company is required</div>
+        </div>
         <label>Division:-</label>   
-        <select  class="form-control-user" formControlName="DivisionId"> 
-            <option value="1">division</option>
-                              
-          </select>   
+        <select  class="form-control" formControlName="DivisionId"
+        [ngClass]="{ 'is-invalid': submitted && f.DivisionId.errors }"> 
+            <option value="1">division</option>                      
+        </select>   
+        <div *ngIf="submitted && f.DivisionId.errors" class="invalid-feedback">
+            <div *ngIf="f.DivisionId.errors.required">Division is required</div>
+        </div>
         <label>Designation:-</label>    
-        <select class="form-control-user" formControlName="DesignationId">
+        <select class="form-control" formControlName="DesignationId"
+        [ngClass]="{ 'is-invalid': submitted && f.DesignationId.errors }">
             <option value="1">designation</option>
-            <option value="1">designation</option>
-              
-          </select>
-    </div>                                   
-    <div *ngIf="(f.CompanyId.invalid && f.CompanyId.touched) || f.CompanyId.dirty"
-     style=" text-align: center; padding: 0px 0px 15px;">
-        <small *ngIf="f.CompanyId.errors?.required" class="text-danger">Company is
-        required</small>
-    </div>
-    <div *ngIf="(f.DivisionId.invalid && f.DivisionId.touched) || f.DivisionId.dirty"
-     style=" text-align: center; padding: 0px 0px 15px;">
-        <small *ngIf="f.DivisionId.errors?.required" class="text-danger">Division is
-        required</small>
-    </div>
-    <div *ngIf="(f.DesignationId.invalid && f.DesignationId.touched) || f.DesignationId.dirty"
-     style=" text-align: center; padding: 0px 0px 15px;">
-        <small *ngIf="f.DesignationId.errors?.required" class="text-danger">Designation is
-        required</small>
-    </div>                                                                                                         
+            <option value="1">designation</option>      
+        </select>
+        <div *ngIf="submitted && f.DesignationId.errors" class="invalid-feedback">
+            <div *ngIf="f.DesignationId.errors.required">Designation is required</div>
+        </div>
+    </div>                                                                                                                                           
     <div class="form-group">  
         <label>Employee code:-</label>                                     
-        <input type="text"  class="form-control form-control-user" formControlName="EmpCode"
-            placeholder="">
+        <input type="text"  class="form-control" formControlName="EmpCode"
+        [ngClass]="{ 'is-invalid': submitted && f.EmpCode.errors }"  placeholder="">
+        <div *ngIf="submitted && f.EmpCode.errors" class="invalid-feedback">
+                <div *ngIf="f.EmpCode.errors.required">Employee code is required</div>
+        </div>
+    </div>   
+    <div class="form-group">      
         <label>Date of joining:-</label>   
-        <input type="date" class="form-control form-control-user" formControlName="DateofJoining"
-           placeholder="">
+        <input type="date" class="form-control" formControlName="DateofJoining"
+        [ngClass]="{ 'is-invalid': submitted && f.DateofJoining.errors }"   placeholder="">
+        <div *ngIf="submitted && f.DateofJoining.errors" class="invalid-feedback">
+            <div *ngIf="f.DateofJoining.errors.required">Date of joining is required</div>
+        </div>   
     </div>                                   
-    <div *ngIf="(f.EmpCode.invalid && f.EmpCode.touched) || f.EmpCode.dirty"
-     style=" text-align: center; padding: 0px 0px 15px;">
-        <small *ngIf="f.EmpCode.errors?.required" class="text-danger">Employee code is
-        required</small>
-        <small class="text-danger" *ngIf="f.EmpCode.errors?.pattern">Please provide a valid Employee code
-        </small>
-    </div>
-    <div *ngIf="(f.DateofJoining.invalid && f.DateofJoining.touched) || f.DateofJoining.dirty"
-     style=" text-align: center; padding: 0px 0px 15px;">
-        <small *ngIf="f.DateofJoining.errors?.required" class="text-danger">Joining is
-        required</small>
-    </div>
 </form>  
