@@ -9,7 +9,7 @@ import { MainComponent } from '../main/main.component';
 import { SidemenuComponent } from './sidemenu/sidemenu.component';
 import { AsidemenuComponent } from './asidemenu/asidemenu.component';
 import { ProfileComponent } from '../profile/profile.component';
-
+import { BankformComponent } from '../bankform/bankform.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,8 @@ import { ProfileComponent } from '../profile/profile.component';
     MainComponent,
     SidemenuComponent,
     AsidemenuComponent,
-    ProfileComponent
+    ProfileComponent,
+    BankformComponent
   ],
   imports: [
     CommonModule,

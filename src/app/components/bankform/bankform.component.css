@@ -1,6 +1,7 @@
-.form-group input,
-.form-group select{
-    margin-bottom: 15px;
+.bankdetails > div{
+    margin: auto;
+    width: 90%;
+    padding: 10px 0px;
 }
 .is-invalid,
 .invalid-feedback
@@ -10,5 +11,4 @@
     font-size: 80%;
     color: #dc3545;  
     display :initial;
-
 }

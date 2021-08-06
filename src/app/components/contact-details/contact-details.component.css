@@ -2,3 +2,13 @@
 .form-group select{
     margin-bottom: 15px;
 }
+.is-invalid,
+.invalid-feedback
+{
+    border-color: #dc3545;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;  
+    display :initial;
+    
+}

@@ -14,13 +14,13 @@ import { SpinnerService } from 'src/app/services/spinner.service';
 
 })
 export class RegisterComponent implements OnInit {
-
+  result: any;
   userform: FormGroup;
   register: Register;
   imageURL: string;
   submitted = false;
-  
-
+  data : any;
+  message : any;
 
   constructor(private formBuilder: FormBuilder,
     private router: Router,
@@ -29,7 +29,32 @@ export class RegisterComponent implements OnInit {
     private notificationservice: NotificationService,) { }
 
   ngOnInit(): void {
+
     this.createFormControls();
+    this.loadInitaildata();
+
+  }
+
+  /**Load countries***/
+  loadInitaildata() {
+    // this.spinnerService.show();
+    let reponse;
+    this.service.GetmasterData().subscribe(data => {
+
+      reponse = data;
+     //console.log(reponse.Result.Value.Company);
+
+      if (reponse.Result.Value != undefined) {
+        // this.companies = reponse.Result.Value.Company;
+        // this.designation = reponse.Result.Value.Designation;
+        // this.division = reponse.Result.Value.Division;
+        this.data =  reponse.Result.Value;
+      }
+
+
+      console.log(this.data)
+    }
+    );
   }
 
   createFormControls() {
@@ -51,13 +76,13 @@ export class RegisterComponent implements OnInit {
       }),
 
       AddressDetails: this.formBuilder.group({
-        Country: new FormControl(['', Validators.required]),
+        Country: ['', Validators.required],
         State: ['', Validators.required],
         District: ['', Validators.required],
         PoliceStation: ['', Validators.required],
         Street: ['', Validators.required],
-        HouseNo: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(5), Validators.pattern("[0-9]*$")]],
-        Lane: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(5), Validators.pattern("[0-9]*$")]],
+        HouseNo: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(5)]],
+        Lane: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(4), Validators.pattern("[0-9]*$")]],
       }),
 
       ContactDetails: this.formBuilder.group({
@@ -67,11 +92,14 @@ export class RegisterComponent implements OnInit {
       })
     });
 
-    this.userform.valueChanges.subscribe(newVal=>console.log(newVal))
+    this.userform.valueChanges.subscribe(newVal => console.log(newVal))
 
   }
 
   get f() { return this.userform.controls }
+
+
+
 
   onSubmit() {
     this.submitted = true;
@@ -81,7 +109,7 @@ export class RegisterComponent implements OnInit {
       this.register = this.userform.getRawValue();
 
       this.spinnerService.show();
-     
+
       this.service.Register(this.register).subscribe(res => {
         console.log(res);
         let result: any = res;
@@ -90,10 +118,11 @@ export class RegisterComponent implements OnInit {
           if (result.Result != undefined || result.Result != null) {
 
             this.notificationservice.showSuccess(MessageType.Save, "Radix");
-            this.router.navigateByUrl('/login');
+            // this.router.navigateByUrl('/login');
             // display form values on success
-        alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.userform.value, null, 4));
+            alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.userform.value, null, 4));
             this.userform.reset();
+            this.message = 'Registration is under process';
           }
           else {
             this.notificationservice.showInfo(MessageType.Invalid, 'Radix');

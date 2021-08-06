@@ -1,90 +1,90 @@
-<form [formGroup]="personalDetailsForm">                                       
+<form [formGroup]="personalDetailsForm">
 
     <div class="form-group">
-        <label>Name:-</label>                                       
-        <input type="text"  formControlName="FirstName" class="form-control"
-        [ngClass]="{ 'is-invalid': submitted && f.FirstName.errors }" placeholder= "First Name">  
+        <label>Name:-</label>
+        <input type="text" formControlName="FirstName" class="form-control" (keypress)="keyPressAlphabets($event)"
+            [ngClass]="{ 'is-invalid': submitted && f.FirstName.errors }" placeholder="First Name">
         <div *ngIf="submitted && f.FirstName.errors" class="invalid-feedback">
             <div *ngIf="f.FirstName.errors.required">First Name is required</div>
         </div>
     </div>
     <div class="form-group">
-        <input type="text" class="form-control" formControlName="MiddleName"
-        [ngClass]="{ 'is-invalid': submitted && f.MiddleName.errors }"  placeholder="Middle Name">   
+        <input type="text" class="form-control" formControlName="MiddleName" (keypress)="keyPressAlphabets($event)"
+            [ngClass]="{ 'is-invalid': submitted && f.MiddleName.errors }" placeholder="Middle Name">
         <div *ngIf="submitted && f.MiddleName.errors" class="invalid-feedback">
             <div *ngIf="f.MiddleName.errors.required">MiddleName is required</div>
-        </div>    
-    </div>  
-    <div class="form-group">                                              
-        <input type="text" class="form-control"  formControlName="LastName"
-        [ngClass]="{ 'is-invalid': submitted && f.LastName.errors }" placeholder="Last Name">    
+        </div>
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" formControlName="LastName" (keypress)="keyPressAlphabets($event)"
+            [ngClass]="{ 'is-invalid': submitted && f.LastName.errors }" placeholder="Last Name">
         <div *ngIf="submitted && f.LastName.errors" class="invalid-feedback">
             <div *ngIf="f.LastName.errors.required">Last Name is required</div>
-        </div>                                                                          
-    </div>                                                                             
-    <div class="form-group"> 
-        <label>Father's Name:-</label>                                      
-        <input type="text"  formControlName="FatherName" class="form-control"
-        [ngClass]="{ 'is-invalid': submitted && f.FatherName.errors }" placeholder="First Name">  
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Father's Name:-</label>
+        <input type="text" formControlName="FatherName" class="form-control" (keypress)="keyPressAlphabets($event)"
+            [ngClass]="{ 'is-invalid': submitted && f.FatherName.errors }" placeholder="First Name">
         <div *ngIf="submitted && f.FatherName.errors" class="invalid-feedback">
             <div *ngIf="f.FatherName.errors.required">First Name is required</div>
         </div>
     </div>
-    <div class="form-group"> 
-        <input type="text"  formControlName="FatherFirstName" class="form-control"
-        [ngClass]="{ 'is-invalid': submitted && f.FatherFirstName.errors }" placeholder="Middle Name"> 
+    <div class="form-group">
+        <input type="text" formControlName="FatherFirstName" class="form-control" (keypress)="keyPressAlphabets($event)"
+            [ngClass]="{ 'is-invalid': submitted && f.FatherFirstName.errors }" placeholder="Middle Name">
         <div *ngIf="submitted && f.FatherFirstName.errors" class="invalid-feedback">
             <div *ngIf="f.FatherFirstName.errors.required">Middle Name is required</div>
         </div>
-    </div>  
-    <div class="form-group">                                              
-        <input type="text" class="form-control" formControlName="FatherMiddleName"
-        [ngClass]="{ 'is-invalid': submitted && f.FatherMiddleName.errors }" placeholder="Last Name">  
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" formControlName="FatherMiddleName" (keypress)="keyPressAlphabets($event)"
+            [ngClass]="{ 'is-invalid': submitted && f.FatherMiddleName.errors }" placeholder="Last Name">
         <div *ngIf="submitted && f.FatherMiddleName.errors" class="invalid-feedback">
             <div *ngIf="f.FatherMiddleName.errors.required">Last Name is required</div>
-        </div>                                                                                    
-    </div>                                       
-    <div class="form-group company">  
-        <label>Company:-</label>                                      
-        <select  class="form-control" formControlName="CompanyId" 
-        [ngClass]="{ 'is-invalid': submitted && f.CompanyId.errors }">
-            <option value="1">company</option>           
+        </div>
+    </div>
+    <div class="form-group company">
+        <label>Company:-</label>
+        <select class="form-control" formControlName="CompanyId" (change)="getDivision()" [(ngModel)]="selectedOption" 
+        
+            [ngClass]="{ 'is-invalid': submitted && f.CompanyId.errors }">
+            <option value="undefined" disabled selected >Select Company</option>
+            <option *ngFor="let company of companies" [value]="company.CompanyId">{{company.CompanyName}}</option>
         </select>
         <div *ngIf="submitted && f.CompanyId.errors" class="invalid-feedback">
             <div *ngIf="f.CompanyId.errors.required">Company is required</div>
         </div>
-        <label>Division:-</label>   
-        <select  class="form-control" formControlName="DivisionId"
-        [ngClass]="{ 'is-invalid': submitted && f.DivisionId.errors }"> 
-            <option value="1">division</option>                      
-        </select>   
-        <div *ngIf="submitted && f.DivisionId.errors" class="invalid-feedback">
-            <div *ngIf="f.DivisionId.errors.required">Division is required</div>
-        </div>
-        <label>Designation:-</label>    
-        <select class="form-control" formControlName="DesignationId"
-        [ngClass]="{ 'is-invalid': submitted && f.DesignationId.errors }">
-            <option value="1">designation</option>
-            <option value="1">designation</option>      
+        <label>Division:-</label>
+        <select class="form-control" formControlName="DivisionId" [(ngModel)]="selectedOption"
+            [ngClass]="{ 'is-invalid': submitted && f.DivisionId.errors }">
+            <option value="undefined"  disabled selected >Select Company first</option>
+            <option *ngFor="let div of division" [value]="div.DivisionId">{{div.DivisionName}}</option>
         </select>
-        <div *ngIf="submitted && f.DesignationId.errors" class="invalid-feedback">
-            <div *ngIf="f.DesignationId.errors.required">Designation is required</div>
+        
+        <label>Designation:-</label>
+        <select class="form-control" formControlName="DesignationId"  [(ngModel)]="selectedOption"
+            [ngClass]="{ 'is-invalid': submitted && f.DesignationId.errors }">
+            <option value="undefined" disabled selected >Select designation first</option>
+            <option *ngFor="let designation of designations" [value]="designation.DesignationId">
+                {{designation.Designation}}</option>
+        </select>
+        
+    </div>
+    <div class="form-group">
+        <label>Employee code:-</label>
+        <input type="text" class="form-control" formControlName="EmpCode" (keypress)="keyPressNumbers($event)"
+            [ngClass]="{ 'is-invalid': submitted && f.EmpCode.errors }" placeholder="">
+        <div *ngIf="f.EmpCode.touched && f.EmpCode.errors || submitted" class="invalid-feedback">
+            <div *ngIf="f.EmpCode.errors.required">Employee code is required</div>
         </div>
-    </div>                                                                                                                                           
-    <div class="form-group">  
-        <label>Employee code:-</label>                                     
-        <input type="text"  class="form-control" formControlName="EmpCode"
-        [ngClass]="{ 'is-invalid': submitted && f.EmpCode.errors }"  placeholder="">
-        <div *ngIf="submitted && f.EmpCode.errors" class="invalid-feedback">
-                <div *ngIf="f.EmpCode.errors.required">Employee code is required</div>
-        </div>
-    </div>   
-    <div class="form-group">      
-        <label>Date of joining:-</label>   
+    </div>
+    <div class="form-group">
+        <label>Date of joining:-</label>
         <input type="date" class="form-control" formControlName="DateofJoining"
-        [ngClass]="{ 'is-invalid': submitted && f.DateofJoining.errors }"   placeholder="">
-        <div *ngIf="submitted && f.DateofJoining.errors" class="invalid-feedback">
+            [ngClass]="{ 'is-invalid': submitted && f.DateofJoining.errors }" placeholder="">
+        <div *ngIf="f.DateofJoining.touched && f.DateofJoining.errors || submitted" class="invalid-feedback">
             <div *ngIf="f.DateofJoining.errors.required">Date of joining is required</div>
-        </div>   
-    </div>                                   
-</form>  
+        </div>
+    </div>
+</form>

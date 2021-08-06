@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
           if(result.Result!=undefined || result.Result!=null){
            
             localStorage.setItem('IsLoggedIn', 'true');
-            this.router.navigate(['/layout'], { queryParams: { 'user': ""}});
+            this.router.navigate(['/layout'], { queryParams: { 'user': result.Result.UserName}});
             this.userform.reset();
            
           }

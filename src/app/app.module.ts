@@ -17,6 +17,7 @@ import { ContactDetailsComponent } from './components/contact-details/contact-de
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,6 @@ import { ContactDetailsComponent } from './components/contact-details/contact-de
     PersonalDetailsComponent,
     AddressDetailsComponent,
     ContactDetailsComponent,
-    
    
     
   ],

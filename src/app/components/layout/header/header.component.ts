@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
 
@@ -6,13 +6,18 @@ import { CommonService } from 'src/app/services/common.service';
   selector: 'app-header',
   templateUrl: './header.component.html',
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnChanges {
 
   menus: any;
-  constructor(private route:Router, private service: CommonService,) { }
+  @Input() user: any;
+  constructor(private route: Router, private service: CommonService,) { }
 
   ngOnInit(): void {
     this.getMenus();
+  }
+
+  ngOnChanges() {
+
   }
 
   /* LOADING MENUS */
@@ -24,19 +29,18 @@ export class HeaderComponent implements OnInit {
   /*MENU CONDITION*/
   getClass(menu) {
 
-    if (menu == "Other Pages"){
+    if (menu == "Other Pages") {
       return "fa fa-angle-down";
     }
   }
-  getdropdown(menu){
+  getdropdown(menu) {
 
-    if (menu == "Other Pages"){
+    if (menu == "Other Pages") {
       return "menu-item";
     }
   }
-  getIcon(menu){
-    switch(menu)
-    {
+  getIcon(menu) {
+    switch (menu) {
       case "About Us":
         return "fa fa-info";
         break;
@@ -45,15 +49,14 @@ export class HeaderComponent implements OnInit {
         break;
       case "Other Pages":
         return "fa fa-file";
-        break;  
+        break;
     }
   }
 
- /**navigation*/
-  navigate_menu(menu){
+  /**navigation*/
+  navigate_menu(menu) {
 
-    switch(menu)
-    {
+    switch (menu) {
       case "Dashboard":
         this.route.navigate(['layout/dashboard'])
         break;
@@ -62,13 +65,12 @@ export class HeaderComponent implements OnInit {
         break;
       case "File Upload":
         this.route.navigate(['dashboard/fileupload'])
-        break; 
+        break;
     }
   }
   navigate_sub(sub) {
-  
-    switch(sub)
-    {
+
+    switch (sub) {
       case "Testimonials":
         this.route.navigate(['dashboard/testimonials'])
         break;
@@ -77,12 +79,12 @@ export class HeaderComponent implements OnInit {
         break;
       case "Partners":
         this.route.navigate(['dashboard/partner'])
-        break;  
+        break;
       case "Clients":
         this.route.navigate(['dashboard/clients'])
-        break; 
+        break;
     }
-    
-  } 
+
+  }
 
 }

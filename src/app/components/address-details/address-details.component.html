@@ -1,9 +1,10 @@
 <form [formGroup]="addressDetailsForm">
     <div class="form-group"> 
         <label>Country:-</label>                                         
-        <select  class="form-control"  name="state" id="countySel" size="1" formControlName="Country"
+        <select  class="form-control" formControlName="Country" (change)="getState()" 
         [ngClass]="{ 'is-invalid': submitted && f.Country.errors }">
-            <option value="" selected="selected">Select Country</option>   
+            <option value="undefined" disabled selected>Select Country</option>
+            <option  *ngFor="let country of countries" [value]="country.CountryId">{{country.CountryName}}</option>   
         </select>  
         <div *ngIf="submitted && f.Country.errors" class="invalid-feedback">
             <div *ngIf="f.Country.errors.required">Country is required</div>
@@ -11,9 +12,10 @@
     </div>  
     <div class="form-group">
         <label>State:-</label>    
-        <select name="countrya" id="stateSel" size="1" class="form-control" formControlName="State"
-        [ngClass]="{ 'is-invalid': submitted && f.State.errors }">
-            <option value="" selected="selected">Please select Country first</option>  
+        <select  class="form-control" formControlName="State" (change)="getDistrict()" 
+          [ngClass]="{ 'is-invalid': submitted && f.State.errors }">
+            <option value="undefined" disabled selected>Please select Country first</option>  
+            <option *ngFor="let state of states" [value]="state.StateId">{{state.StateName}}</option> 
         </select>   
         <div *ngIf="submitted && f.State.errors" class="invalid-feedback">
             <div *ngIf="f.State.errors.required">State is required</div>
@@ -21,9 +23,10 @@
     </div>                                                                                                                
     <div class="form-group">  
         <label>District:-</label>                                    
-        <select  name="district" id="districtSel" size="1" class="form-control" formControlName="District"
+        <select  class="form-control" formControlName="District" (change)="getPolicestation()" 
         [ngClass]="{ 'is-invalid': submitted && f.District.errors }">
-            <option value="" selected="selected">Please select State first</option> 
+            <option value="undefined" disabled selected>Please select State first</option> 
+            <option *ngFor="let district of districts" [value]="district.DistrictId">{{district.DistrictName}}</option>
         </select>
         <div *ngIf="submitted && f.District.errors" class="invalid-feedback">
             <div *ngIf="f.District.errors.required">District is required</div>
@@ -31,10 +34,10 @@
     </div>  
     <div class="form-group">   
         <label>Police Station:-</label>   
-        <select id="cars" name="cars" class="form-control" formControlName="PoliceStation"
+        <select class="form-control" formControlName="PoliceStation" 
         [ngClass]="{ 'is-invalid': submitted && f.PoliceStation.errors }">
-            <option value="policestation1">policestation</option>
-            <option value="policestation2">policestation</option>                
+        <option value="undefined" disabled selected>Please select District first</option> 
+        <option *ngFor="let ps of policestation" [value]="ps.PolicestationId">{{ps.PolicestationName}}</option>              
         </select>  
         <div *ngIf="submitted && f.PoliceStation.errors" class="invalid-feedback">
             <div *ngIf="f.PoliceStation.errors.required">Police Station is required</div>
@@ -50,17 +53,17 @@
     </div>                                                                                                                   
     <div class="form-group"> 
         <label>House/Flat Number:-</label>                                          
-        <input type="text" class="form-control" formControlName="HouseNo"
+        <input type="text" class="form-control" formControlName="HouseNo" (keypress)="keyPressAlphanumeric($event)"
         [ngClass]="{ 'is-invalid': submitted && f.HouseNo.errors }" placeholder=""> 
-        <div *ngIf="submitted && f.HouseNo.errors" class="invalid-feedback">
+        <div *ngIf="f.HouseNo.touched && f.HouseNo.errors || submitted" class="invalid-feedback">
             <div *ngIf="f.HouseNo.errors.required">House no is required</div>
         </div>
     </div> 
     <div class="form-group">          
         <label>Lane no:-</label>   
-        <input type="text" class="form-control" formControlName="Lane"
+        <input type="text" class="form-control" formControlName="Lane" (keypress)="keyPressNumbers($event)"
         [ngClass]="{ 'is-invalid': submitted && f.Lane.errors }"   placeholder="">
-        <div *ngIf="submitted && f.Lane.errors" class="invalid-feedback">
+        <div *ngIf="f.Lane.touched && f.Lane.errors || submitted" class="invalid-feedback">
             <div *ngIf="f.Lane.errors.required">Lane no is required</div>
         </div>                                                                                               
     </div>

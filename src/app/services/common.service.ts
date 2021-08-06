@@ -27,13 +27,18 @@ export class CommonService {
     headers.append('Content-Type', 'application/json');
     return this.http.post(this.url + "Registration", body, { headers: headers });
   }
-
-  // GetInitialData() {
-
-  //   let headers = new HttpHeaders();
-  //   headers.append('Content-Type', 'application/json');
-  //   return this.http.get(this.url + "GetEnquiry", { headers: headers });
-  // }
+  /*Load Companies*/
+  GetmasterData() {
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    return this.http.get(this.url + "GetMasterData", { headers: headers });
+  } 
+  
+  GetInitialData() {
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    return this.http.get(this.url + "GetAllRegistration", { headers: headers });
+  }
 
   // postFile(fileToUpload: File) {
 
@@ -68,63 +73,5 @@ export class CommonService {
     return Menus;
   }
 
-  /*******Partners*******/
-  // GetPartners() {
-  //   let headers = new HttpHeaders();
-  //   headers.append('Content-Type', 'application/json');
-  //   return this.http.get(this.url + "GetPartners", { headers: headers });
-  // }
-  // insertPartners(body) {
-  //   let headers = new Headers({ 'Accept': 'Application/json' });
-  //   return this.http.post(this.url + "SavePartners", body)
-  // }
-  // deletePartners(partnerId: any) {
-  //   let headers = new HttpHeaders();
-  //   headers.append('Content-Type', 'application/json');
-  //   return this.http.get(this.url + "DeletePartner?partnerId=" + partnerId, { headers: headers });
-  // }
 
-
-  /*******testimonials*******/
-  // GetTestmonials() {
-  //   let headers = new HttpHeaders();
-  //   headers.append('Content-Type', 'application/json');
-  //   return this.http.get(this.url + "GetTestimonials", { headers: headers });
-  // }
-  // insertTestimonials(body) {
-  //   let headers = new Headers({ 'Accept': 'Application/json' });
-  //   return this.http.post(this.url + "SaveTestimonials", body)
-  // }
-  // deleteTestimonial(testimonialId: any) {
-  //   let headers = new HttpHeaders();
-  //   headers.append('Content-Type', 'application/json');
-  //   return this.http.get(this.url + "DeleteTestimonial?testimonialId=" + testimonialId, { headers: headers });
-  // }
-
-  /*******CLIENTS*******/
-  // GetClients() {
-  //   let headers = new HttpHeaders();
-  //   headers.append('Content-Type', 'application/json');
-  //   return this.http.get(this.url + "Client", { headers: headers });
-  // }
-  // insertClients(body) {
-  //   let headers = new Headers({ 'Accept': 'Application/json' });
-  //   return this.http.post(this.url + "SaveClients", body)
-  // }
-  // deleteClients(clientId: any) {
-  //   let headers = new HttpHeaders();
-  //   headers.append('Content-Type', 'application/json');
-  //   return this.http.get(this.url + "DeleteClient?clientId=" + clientId, { headers: headers });
-  //}
-  /*******File Upload*******/
-  // fileUpload(fileToUpload: File) {
-  //   const formData: FormData = new FormData();
-  //   formData.append('file', fileToUpload, fileToUpload.name);
-  //   let headers = new HttpHeaders();
-  //   headers.append('Content-Type', 'multipart/form-data');
-  //   return this.http.post(this.url + "UploadImage", formData, { headers: headers });
-
-  // }
-
-  
 }
