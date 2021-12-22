@@ -1,0 +1,79 @@
+<div id="dish_popup" class="col-lg-7 col-md-7 col-sm-8 col-xs-10">
+    <div class="top">
+        <h4>Add Dish</h4>
+        <a href="javascript:void(0)" class="closebtn" (click)="close_popup()">&times;</a>
+    </div>
+    <form [formGroup]="DishForm">
+      <div class="form-group">     
+        <label for="Image"> Select Image: </label>
+        <!-- <input type="file" formControlName="Logo" placeholder="Select Image" class="form-control"
+        accept="image/*"  (change)="showPreview($event)"> -->
+        <input type="file" (change)="fileChangeEvent($event)" class="fileInputProfile" 
+        formControlName="Dishimage" [ngStyle]="{width:'50%'}">
+        <ng-container *ngIf="isImageSaved; else elseTemplate">
+          <img [src]="cardImageBase64" class="image"/>
+        </ng-container>
+        <ng-template #elseTemplate>
+          <img src="assets/images/fff.png" class="img-fluid">
+        </ng-template>
+      </div>
+      <div class="form-group has-feedback">
+          <select  class="form-control" formControlName="Dishname" 
+           [ngClass]="{ 'is-invalid': submitted && f.Dishname.errors }">
+           <option disabled selected>-- Select Dishname --</option>
+            <option value="1">Butter Chicken</option>
+            <option value="2">Tandori Chicken</option> 
+            <option value="3">Masala Dosa</option>  
+          </select>
+          <div *ngIf="submitted && f.Dishname.errors" class="invalid-feedback">
+            <div *ngIf="f.Dishname.errors.required">Dish name is required</div>
+          </div>
+      </div>
+      <div class="form-group has-feedback">
+        <select  class="form-control" formControlName="Dishquantity"
+           [ngClass]="{ 'is-invalid': submitted && f.Dishquantity.errors }">
+           <option disabled selected>-- Select Dishquantity --</option>
+            <option value="1">1 plate</option>
+            <option value="2">2 plate</option>
+            <option value="3">3 plate</option>   
+            <option value="4">4 plate</option>      
+        </select>
+        <div *ngIf="submitted && f.Dishquantity.errors" class="invalid-feedback">
+          <div *ngIf="f.Dishquantity.errors.required">Dishquantity is required</div>
+        </div>
+      </div>
+      <div class="form-group has-feedback">
+          <select  class="form-control" formControlName="Dishstatus"
+           [ngClass]="{ 'is-invalid': submitted && f.Dishstatus.errors }">
+           <option disabled selected>-- Select Dishstatus --</option>
+            <option value="1">Ready</option>
+            <option value="2">5 mins</option>
+            <option value="3">10 mins</option>
+            <option value="4">20 mins</option>   
+          </select>
+          <div *ngIf="submitted && f.Dishstatus.errors" class="invalid-feedback">
+              <div *ngIf="f.Dishstatus.errors.required">Dishstatus is required</div>
+          </div>
+      </div>
+      <div class="form-group has-feedback">
+        <select  class="form-control" formControlName="Dishamount" placeholder="Dishamount"
+           [ngClass]="{ 'is-invalid': submitted && f.Dishamount.errors }">
+           <option disabled>-- Select Dishamount --</option>
+            <option value="1">100</option>
+            <option value="2">200</option> 
+            <option value="3">300</option>
+            <option value="4">400</option>  
+        </select>
+        <div *ngIf="submitted && f.Dishamount.errors" class="invalid-feedback">
+            <div *ngIf="f.Dishamount.errors.required">Dishamount is required</div>
+        </div>
+      </div>
+      <div class="row">
+          <!-- /.col -->
+          <div>
+            <button type="submit"  class="btn" (click)="onSubmit()">submit</button>
+          </div>
+          <!-- /.col -->
+      </div>
+  </form>       
+  </div>

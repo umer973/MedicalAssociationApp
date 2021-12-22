@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from "@angular/router";
-import { CommonModule } from '@angular/common';
 import { LayoutComponent } from "./layout.component";
-import { ProfileComponent } from '../profile/profile.component';
-import { BankformComponent } from '../bankform/bankform.component';
+import { ItemListComponent } from '../item-list/item-list.component';
+import { FrontOfficeComponent } from '../front-office/front-office.component';
+import { OrderListComponent } from '../order-list/order-list.component';
+import { KitchenComponent } from '../kitchen/kitchen.component';
+import { InvoiceComponent } from '../invoice/invoice.component';
 
 const routes: Routes = [
   {
@@ -11,14 +13,14 @@ const routes: Routes = [
     redirectTo: 'dashboard',
     pathMatch: 'full'
   },
+  { path: 'frontoffice', component: FrontOfficeComponent},
   {
     path: 'dashboard',component: LayoutComponent,
     children:[
-      { path:'profile',component:ProfileComponent},
-      { path: 'bankdetails', component: BankformComponent },
-    //   { path: 'fileupload', component: FileuploadComponent },
-    //   { path: 'clients', component: ClientsComponent },
-    //   { path: 'dailog', component: CommondialogComponent}
+    { path: 'itemlist', component: ItemListComponent},
+    { path: 'orderlist', component: OrderListComponent },
+    { path: 'kitchen', component: KitchenComponent },
+    { path: 'invoice', component: InvoiceComponent}
     
      ]
   }

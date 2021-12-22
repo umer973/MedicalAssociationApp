@@ -1,0 +1,165 @@
+
+<div id="freeze"></div>
+<!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper main"  [ngStyle]="{'margin-left': '0px'}" >
+      <!-- Content Header (Page header) -->
+      <section class="content-header">
+        <h1>
+          Front desk
+        </h1>
+        <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li class="active">Front desk</li>
+        </ol>
+      </section>
+      <!-- Main content -->
+      <section class="content">
+      <div class="row">
+          <div class="box" [ngStyle]="{background:'radial-gradient(#3c8dbc, transparent)'}">
+            <a href="#/layout/dashboard"><p>Back to dashboard</p></a>
+            <!-- <div class="box-header">    
+            </div> -->
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="col-md-3 col-sm-4 backgrnd">
+                <p>Table List</p>
+                <div class="inner-div">
+                    <!--TABLES--> 
+                    <div (click)="showDetails()">
+                      <h4>01</h4>
+                      <p>2 min</p>
+                    </div>
+                    <div style="border-style: dotted;">
+                      <h4>02</h4>                    
+                    </div>
+                    <div>
+                      <h4>03</h4>
+                    </div>
+                    <div style="border-style: dotted;">
+                      <h4>04</h4>
+                    </div>
+                    <div>
+                      <h4>05</h4>
+                    </div>
+                    <div style="border-style: dotted;">
+                      <h4>06</h4>                    
+                    </div>
+                    <div>
+                      <h4>07</h4>
+                      <p>10 min</p>
+                    </div>
+                    <div>
+                      <h4>08</h4>
+                      <p>2 min</p>
+                    </div>
+                    <div>
+                      <h4>09</h4>
+                      <p>2 min</p>
+                    </div>
+                    <div>
+                      <h4>10</h4>
+                      <p>2 min</p>
+                    </div>
+                </div>
+              </div>
+              <div id ="showItems" class="col-md-6 col-sm-7 backgrnd">  
+                <div class="top_div">
+                  <p style="font-weight:bold;">Table No:- 3</p>
+                  <div>
+                    <!-- <span><i class="fa fa-edit"></i></span> -->
+                    <button type="submit" class="btn btn-block btn-flat" (click)="open_popup()">Add dish</button>
+                  </div> 
+                </div>
+                <div class="second_div">
+                 <ul>
+                   <li style="width:50%;color: #3c8dbc;">Occupied</li>
+                   <li style="width:50%;text-align: right;color: #3c8dbc;">Order Number:- 8345</li>
+                 </ul>
+                </div>
+                <!---ITEMS-->
+                <div class="items">
+                  <ul>
+                    <li>
+                      <img src="https://dummyimage.com/50x50/000/fff" alt="image">
+                    </li>
+                    <li style="width:35%;padding: 5px;">
+                      Butter chicken <br> x1
+                    </li>
+                    <li style="width:15%; text-align:center;">
+                      <span><i class="fa fa-check"></i></span>
+                      Ready
+                    </li>
+                    <li style="width:35%; text-align:right;">
+                      <span>₹</span>
+                      500
+                    </li>
+                    <li style="width:15%;display:flex;justify-content: center;">
+                      <span><i class="fa fa-edit" style="margin-right:5px"></i></span>
+                      <span><i class="fa fa-trash" style="margin-right:5px"></i></span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="items">
+                  <ul>
+                    <li>
+                      <img src="https://dummyimage.com/50x50/000/fff" alt="image">
+                    </li>
+                    <li style="width:35%;padding: 5px;">
+                      Chicken Tikka masala <br> x1
+                    </li>
+                    <li style="width:15%; text-align:center;">
+                      <span><i class="fa fa-check"></i></span>
+                      Ready
+                    </li>
+                    <li style="width:35%; text-align:right;">
+                      <span>₹</span>
+                      500
+                    </li>
+                    <li style="width:15%;display:flex;justify-content: center;">
+                      <span><i class="fa fa-edit" style="margin-right:5px"></i></span>
+                      <span><i class="fa fa-trash" style="margin-right:5px"></i></span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="items">
+                  <ul>
+                    <li>
+                      <img src="https://dummyimage.com/50x50/000/fff" alt="image">
+                    </li>
+                    <li style="width:35%;padding: 5px;">
+                      Masala Dosa <br> x2
+                    </li>
+                    <li style="width:15%; text-align:center;">
+                      <span><i class="fa fa-clock"></i></span>
+                      10 min
+                    </li>
+                    <li style="width:35%; text-align:right;">
+                      <span>₹</span>
+                      1000
+                    </li>
+                    <li style="width:15%;display:flex;justify-content: center;">
+                      <span><i class="fa fa-edit" style="margin-right:5px"></i></span>
+                      <span><i class="fa fa-trash" style="margin-right:5px"></i></span>
+                    </li>
+                  </ul>
+                </div>
+                <!---TOTAL-->
+                <div class="total">
+                  <ul>
+                    <li>Total:</li>
+                    <li>₹ 2000</li>
+                  </ul>
+                </div>
+              </div>
+            </div>           
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->    
+      </div>
+      <!-- /.row -->
+     </section>
+     <!-- Content Row -->
+    <app-common-dialog (additem)="openDialog($event)" [submitted]="submitted" ></app-common-dialog>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->

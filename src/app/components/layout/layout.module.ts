@@ -8,8 +8,6 @@ import { FooterComponent } from './footer/footer.component';
 import { MainComponent } from '../main/main.component';
 import { SidemenuComponent } from './sidemenu/sidemenu.component';
 import { AsidemenuComponent } from './asidemenu/asidemenu.component';
-import { ProfileComponent } from '../profile/profile.component';
-import { BankformComponent } from '../bankform/bankform.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +17,6 @@ import { BankformComponent } from '../bankform/bankform.component';
     MainComponent,
     SidemenuComponent,
     AsidemenuComponent,
-    ProfileComponent,
-    BankformComponent
   ],
   imports: [
     CommonModule,

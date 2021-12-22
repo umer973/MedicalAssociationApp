@@ -1,0 +1,90 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper item-list">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Invoice
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Invoice</li>
+      </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+    <div class="row">
+        <div class="box" [ngStyle]="{background:'radial-gradient(#3c8dbc, transparent)'}">   
+          <!-- /.box-header -->
+          <div class="box-header">
+            <button onclick="window.print();"> Print</button>
+            <div class="input-group">
+                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                            aria-label="Search" aria-describedby="basic-addon2">              
+                <button class="btn" type="button">
+                    <i class="fa fa-search fa-sm"></i>
+                </button>      
+            </div>   
+          </div>
+         
+          <div class="box-body">
+            <div class="body-section">
+                <div class="row">
+                    <div class="col-lg-6 col-xs-12">
+                        <h2 class="heading">Invoice No : 001</h2>
+                        <p class="sub-heading">Order Date: 20-20-2021 </p>
+                    </div>
+                    <div class="col-lg-6 col-xs-12">
+                        <p class="sub-heading">Name:</p>
+                        <p class="sub-heading">Phone Number:</p>
+                    </div>
+                </div>
+            </div>
+            <div class="body-section">
+                <h3 class="heading">Ordered Items</h3>
+                <br>
+                <table class="table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th class="w-20">Price</th>
+                            <th class="w-20">Quantity</th>
+                            <th class="w-20">Grandtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Product Name</td>
+                            <td>10</td>
+                            <td>1</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>Product Name</td>
+                            <td>10</td>
+                            <td>1</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Sub Total</td>
+                            <td> 10.XX</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Tax Total %1X</td>
+                            <td> 2</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">Grand Total</td>
+                            <td> 12.XX</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>    
+          </div>           
+          <!-- /.box-body -->
+        </div>
+        <!-- /.box -->    
+    </div>
+    <!-- /.row -->
+   </section>
+</div>
+<!-- /.content-wrapper -->

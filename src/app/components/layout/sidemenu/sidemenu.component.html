@@ -12,7 +12,7 @@
         </div>    
       </div>    
       <!-- search form -->    
-      <form action="#" method="get" class="sidebar-form">    
+      <!-- <form action="#" method="get" class="sidebar-form">    
         <div class="input-group">    
           <input type="text" name="q" class="form-control" placeholder="Search...">    
           <span class="input-group-btn">    
@@ -20,23 +20,22 @@
                 </button>    
               </span>    
         </div>    
-      </form>    
+      </form>     -->
       <!-- /.search form -->    
       <!-- sidebar menu: : style can be found in sidebar.less -->    
       <ul class="sidebar-menu" data-widget="tree">    
-        <li class="header">MAIN NAVIGATION</li>    
-        <li class="active treeview">    
-          <a>    
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>    
+        <li class="header">MAIN NAVIGATION</li>
+        <li class="active treeview" *ngFor="let menu of menus">    
+          <a (click)="navigate_menu(menu.MenuName)">    
+            <i class="fa fa-file" style="margin-right:5px"></i> <span >{{menu.MenuName}}</span>    
             <span class="pull-right-container">    
               <i class="fa fa-angle-left pull-right"></i>    
             </span>    
           </a>    
-          <ul class="treeview-menu">    
+          <!-- <ul class="treeview-menu">    
             <li class="active"><a routerLink="/layout/dashboard"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>       
-          </ul>    
+          </ul> -->
         </li>    
-    
       </ul>    
     </section>    
     <!-- /.sidebar -->    

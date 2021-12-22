@@ -1,0 +1,129 @@
+<div id="freeze"></div>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper item-list">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Item List
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Item List</li>
+      </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+    <div class="row">
+        <div class="box" [ngStyle]="{background:'radial-gradient(#3c8dbc, transparent)'}">
+          <div class="box-header">
+            <button type="submit" class="btn btn-block btn-flat" (click)="open_popup()">Add Item</button>
+            <div class="input-group">
+                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                            aria-label="Search" aria-describedby="basic-addon2">              
+                <button class="btn" type="button">
+                    <i class="fa fa-search fa-sm"></i>
+                </button>      
+            </div>   
+          </div>
+          <!-- /.box-header -->
+          <div class="box-body">
+            <table id="dataTable" class="table table-bordered table-hover">
+              <thead>
+              <tr>   
+                <th>Item number</th>             
+                <th>Item Name</th>
+                <th>Item Price/Plate</th>
+                <th>Action</th>    
+              </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><a style="cursor:pointer;">09</a></td>                    
+                  <td>Butter Chicken</td>
+                  <td>100</td>
+                  <td class="spn_stylng">
+                      <span><i class="fa fa-edit"></i></span>
+                      <span  (click)="onDelete()"><i class="fa fa-trash"></i></span>
+                  </td>
+                </tr>
+                <tr>
+                    <td><a style="cursor:pointer;">10</a></td>                    
+                    <td>Butter Chicken</td>
+                    <td>100</td>
+                    <td class="spn_stylng">
+                        <span><i class="fa fa-edit"></i></span>
+                        <span><i class="fa fa-trash"></i></span>
+                    </td>
+                </tr> 
+                <tr>
+                    <td><a style="cursor:pointer;">11</a></td>                    
+                    <td>Butter Chicken</td>
+                    <td>100</td>
+                    <td class="spn_stylng">
+                        <span><i class="fa fa-edit"></i></span>
+                        <span><i class="fa fa-trash"></i></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a style="cursor:pointer;">12</a></td>
+                    <td>Butter Chicken</td>
+                    <td>100</td>
+                    <td class="spn_stylng">
+                        <span><i class="fa fa-edit"></i></span>
+                        <span><i class="fa fa-trash"></i></span>
+                    </td>
+                </tr>  
+              </tbody>
+            </table>      
+          </div>           
+          <!-- /.box-body -->
+        </div>
+        <!-- /.box -->    
+    </div>
+    <!-- /.row -->
+   </section>
+   <div id="dish_popup" class="col-lg-7 col-md-7 col-sm-8 col-xs-10">
+    <div class="top">
+        <h4>Add Item</h4>
+        <a href="javascript:void(0)" class="closebtn" (click)="close_popup()">&times;</a>
+    </div>
+    <form [formGroup]="DishForm">
+      <div class="form-group has-feedback">
+          <input type="text" class="form-control" formControlName="DishNumber" placeholder="Item Number"
+          (keypress)="keyPressNumbers($event)"
+          [ngClass]="{ 'is-invalid': submitted && f.DishNumber.errors }">
+          <div *ngIf="submitted && f.DishNumber.errors" class="invalid-feedback">
+            <div *ngIf="f.DishNumber.errors.required">Number is required</div>
+          </div>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="text" class="form-control" formControlName="Dishname"  placeholder="Item Name"
+         (keypress)="keyPressAlphabets($event)"  [ngClass]="{ 'is-invalid': submitted && f.Dishname.errors }">
+        <div *ngIf="submitted && f.Dishname.errors" class="invalid-feedback">
+          <div *ngIf="f.Dishname.errors.required">Name is required</div>
+        </div>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="text" formControlName="Dishamount" class="form-control" placeholder="Item Price/Plate"
+        (keypress)="keyPressNumbers($event)"  [ngClass]="{ 'is-invalid': submitted && f.Dishamount.errors }">
+        <div *ngIf="submitted && f.Dishamount.errors" class="invalid-feedback">
+            <div *ngIf="f.Dishamount.errors.required">Price is required</div>
+        </div>
+      </div>
+      <div class="row">
+          <!-- /.col -->
+          <div>
+            <button type="submit"  class="btn" (click)="onSubmit()">submit</button>
+          </div>
+          <!-- /.col -->
+      </div>
+  </form>       
+  </div>
+  <app-delete (deleteitem)="openDialog($event)"></app-delete>
+</div>
+<!-- /.content-wrapper -->
+ 
+
+ 
+ 
+

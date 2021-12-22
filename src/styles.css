@@ -1,1 +1,322 @@
+#freeze{
+  opacity: 0.8;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1500;
+  overflow: hidden;
+  position: fixed;
+  background: #0b0b0b;
+  display: none;
+}
+/*--------LOGIN  CSS-------*/
+.login-row{
+    text-align: center;
+}
+.login-box{
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175) !important;
+    width: 40%;
+    padding: 20px 10px;
+    background: radial-gradient(#3c8dbc, transparent);
+}
+.login-box .box{
+    background: #f0f7f9;
+}
+.login-box .login-box-msg{
+    padding-top: 10px;
+    font-size: 16px;
+}
+.login-row .login-btn{
+    width: 50%;
+    margin-left: auto;
+}
+.is-invalid,
+.invalid-feedback
+{
+    border-color: #dc3545;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;  
+    display :initial;
 
+}
+/*MEDIA QUERIES*/
+@media(max-width: 767px){
+    .login-box{
+        width: 80%;
+    }
+}
+/*MAIN CSS*/
+.content-wrapper{
+  background: #f0f7f9;
+}
+/*FRONT OFFICE*/
+.main .content .box > a{
+  text-decoration: underline;
+}
+.main .content .box > a > p{
+  padding: 10px;
+  text-align: right;
+}
+.main .box-body{
+  padding: 15px;
+  display: flex;
+}
+.main .backgrnd{
+  background: #f0f7f9;
+  padding:10px;
+  box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
+  margin-left: auto;
+  margin-right:auto;
+  border-radius: 10px;
+}
+.main .backgrnd h3{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.main  .inner-div{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+.main  .inner-div > div{
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #3c8dbc;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 10px;
+    height:70px;
+}
+.main  .inner-div h4{
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+.main  .inner-div p{
+   margin-bottom: 5px;
+}
+.main .top_div{
+  display: flex;
+  margin-bottom: 10px;
+}
+.main .top_div > div{
+  margin-left: auto;
+  display: flex;
+}
+.top_div span,
+.top_div button,
+.item-list .box-header button,
+#dish_popup form  button,
+#orderDetails form button{
+  color:#3c8dbc;
+  padding:5px;
+}
+.top_div button,
+.item-list .box-header button,
+#dish_popup form  button,
+#orderDetails form  button,
+.btn:active:focus, .btn:focus
+{
+  color:white;
+  background-color:#3c8dbc;
+  border-color: #3c8dbc;
+  outline: none;
+  border-radius: 0px;
+  border: none;
+}
+.main .items{
+  margin-top: 10px;
+  border-bottom: 1px solid lightgrey;
+}
+.main .items ul,
+.main .total ul,
+.second_div ul{
+  display: flex;
+  padding: 0px;
+}
+.main .items ul li,
+.main .total ul li,
+.main .second_div li{
+  list-style: none;
+}
+.main .items li,
+.total ul li{
+  font-size:13px;
+}
+.items li:nth-of-type(2),
+.items li:nth-of-type(4),
+.total ul li{
+ font-weight: bold;
+}
+.items li:nth-of-type(3){
+ color:green;
+}
+.main .total{
+  position: absolute;
+  bottom: 0px;
+  right: 2%;
+}
+.main .second_div {
+  margin-bottom: 20px;
+}
+/*ITEM LIST*/
+.item-list .box-header{
+  display: flex;
+}
+.item-list .box-header > button{
+  width: 25%;
+  margin-right: auto;
+  margin-left: 0px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.content-wrapper form{
+  text-align: center;
+}
+.box-header .input-group{
+  display: flex;
+}
+/*ORDER LIST*/
+.spn_stylng > span{
+  margin-right:5px
+}
+.spn_stylng span:nth-of-type(4) > a{
+  color:black;
+}
+@media(max-width:767px ) and ( min-width:576px){
+  .main .box-body .backgrnd:nth-of-type(1){
+    width: 33.33333333%;
+  }
+  .main .box-body .backgrnd:nth-of-type(2){
+    width: 58.33333333%;
+  }
+}
+@media(max-width:575px){
+  .main .box-body{
+    display: initial;
+  }
+  .main .box-body .backgrnd{
+    width: 80%;
+    margin-bottom: 10px;
+  }
+}
+/*DISH POPUP*/
+#dish_popup,
+#orderDetails,
+#delete_popup
+ {
+    background-color: #f8f9fa;
+    box-shadow: 0 0 10px #ccc;
+    border: 6px solid #fff;
+    transform: translate(-50%);
+    padding: 20px 20px;
+    position: absolute;
+    display: none;
+    margin: 0 auto;
+    z-index: 1501;
+  }
+  #dish_popup .top,
+  #orderDetails .top,
+  #delete_popup .top{
+    display:flex;
+  }
+  #dish_popup .top h4,
+  #orderDetails .top h4{
+    margin-left: auto;
+    margin-bottom: 20px;
+  }
+  #dish_popup .top a,
+  #orderDetails .top a,
+  #delete_popup .top a{
+    margin-left: auto;
+    color: black;
+    font-size: 20px;
+  }
+  #delete_popup > div {
+    text-align: center;
+    color: black;
+  }
+  #delete_popup .top > p{
+    padding-bottom: 5px;
+  }
+  #delete_popup div > a{
+    color:grey;
+    padding: 3%;
+    background: white;
+    border: 1px solid;
+    cursor: pointer;
+  }
+  #delete_popup div > a:hover{
+    color: black;
+  }
+  #dish_popup p,
+  #orderDetails p,
+  #delete_popup {
+    text-align: center;
+    font-size: 14px;
+  }
+  #dish_popup .form-group, 
+  #orderDetails .form-group {
+   display: flex;
+  }
+  #dish_popup .form-group > label,
+  #orderDetails .form-group > label{
+    width: 30%;
+  }
+  #dish_popup .form-group > input,
+  #dish_popup .form-group > select,
+  #orderDetails .form-group > input,
+  #orderDetails .form-group > select{
+    width: 100%;
+  }
+  #dish_popup .checkbox,
+  #orderDetails .checkbox{
+    margin: auto;
+    justify-content: center;
+  }
+  #dish_popup .how-come,
+  #orderDetails .how-come{
+    margin-bottom: 0px;
+  }
+  #dish_popup form > div > button,
+  #orderDetails form > div > button{ 
+    padding: 0.5em 4.2em;
+    margin-top: 25px;
+  }
+  #dish_popup .form-group,
+  #orderDetails .form-group{
+    width: 100%;
+  }
+  @media(min-width:1024px){
+    #orderDetails{
+      left: 42%;
+   }
+  }
+  @media(min-width:768px) and (max-width:991px){
+    #orderDetails{
+      left: 36%;
+   }
+  }
+  @media(min-width:768px){
+    #dish_popup,
+    #delete_popup{
+      left: 55%;
+    }
+    #dish_popup, 
+    #orderDetails,
+    #delete_popup
+     {
+      top: 4%;
+  }
+  
+}
+  @media(max-width:767px){
+    #dish_popup,
+    #orderDetails,
+    #delete_popup {
+      top: 1%;
+      left: 50%;
+  }
+}

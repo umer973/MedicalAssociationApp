@@ -18,20 +18,6 @@ export class CommonService {
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
     return this.http.post(this.url + "postLogin", body, { headers: headers });
-  }
-  
-  /***REGISTRATION***/
-  Register(body: any) {
-
-    let headers = new HttpHeaders();
-    headers.append('Content-Type', 'application/json');
-    return this.http.post(this.url + "Registration", body, { headers: headers });
-  }
-  /*Load Companies*/
-  GetmasterData() {
-    let headers = new HttpHeaders();
-    headers.append('Content-Type', 'application/json');
-    return this.http.get(this.url + "GetMasterData", { headers: headers });
   } 
   
   GetInitialData() {
@@ -39,15 +25,6 @@ export class CommonService {
     headers.append('Content-Type', 'application/json');
     return this.http.get(this.url + "GetAllRegistration", { headers: headers });
   }
-
-  // postFile(fileToUpload: File) {
-
-  //   const formData: FormData = new FormData();
-  //   formData.append('file', fileToUpload, fileToUpload.name);
-  //   let headers = new HttpHeaders();
-  //   headers.append('Content-Type', 'multipart/form-data');
-  //   return this.http.post(this.url + "UploadFile", formData, { headers: headers });
-  // }
   /*****LOADING MENUS ******/
   getMenus() {
 
@@ -56,22 +33,30 @@ export class CommonService {
         "MenuID": 1, "MenuName": "Dashboard", "path": "dashboard",
       },
       {
-        "MenuID": 2, "MenuName": "About Us", "path": "",
+        "MenuID": 2, "MenuName": "Item List", "path": "itemlist",
       },
       {
-        "MenuID": 3, "MenuName": "File Upload", "path": "fileupload",
+        "MenuID": 3, "MenuName": "Front Office", "path": "frontoffice",
       },
       {
-        "MenuID": 4, "MenuName": "Other Pages", "path": "",
-        "Pages": [
-          { "path": "page2", "PageName": "Testimonials" },
-          { "path": "page2", "PageName": "Clients" },
-          { "path": "page2", "PageName": "Partners" }
-        ]
+        "MenuID": 4, "MenuName": "Order List", "path": "orderlist",
       },
+      {
+        "MenuID": 5, "MenuName": "Kitchen", "path": "kitchen",
+      },
+      {
+        "MenuID": 6, "MenuName": "Invoice", "path": "invoice",
+      }
+      // {
+      //   "MenuID": 4, "MenuName": "Other Pages", "path": "",
+      //   "Pages": [
+      //     { "path": "page2", "PageName": "Testimonials" },
+      //     { "path": "page2", "PageName": "Clients" },
+      //     { "path": "page2", "PageName": "Partners" }
+      //   ]
+      // },
     ]
     return Menus;
   }
-
 
 }

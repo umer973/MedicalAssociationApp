@@ -1,0 +1,74 @@
+<div id="freeze"></div>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper item-list">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Kitchen
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Kitchen</li>
+      </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+    <div class="row">
+        <div class="box" [ngStyle]="{background:'radial-gradient(#3c8dbc, transparent)'}">
+          <!-- /.box-header -->
+          <div class="box-body">
+            <table id="dataTable" class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Order Name</th>
+                    <th scope="col">Order Quantity</th>
+                    <th scope="col">Price/plate</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Status</th>
+                    <th>Action</th>
+                  </tr>
+               </thead>
+               <tbody>
+                <tr>                    
+                    <td>Butter Chicken, Masala Dosa</td>
+                    <td>2</td>
+                    <td>100</td>               
+                    <td>200</td>   
+                    <td>In Progress</td>  
+                    <td>
+                        <span (click)="open_popup()"><i class="fa fa-edit" style="margin-right:5px"></i></span>
+                    </td>                  
+                </tr>
+               </tbody>              
+            </table>    
+          </div>           
+          <!-- /.box-body -->
+        </div>
+        <!-- /.box -->    
+    </div>
+    <!-- /.row -->
+   </section>
+   <div id="dish_popup" class="col-lg-7 col-md-7 col-sm-8 col-xs-10">
+    <div class="top">
+        <h4>Order Status</h4>
+        <a href="javascript:void(0)" class="closebtn" (click)="close_popup()">&times;</a>
+    </div>
+    <form [formGroup]="KitchenForm">
+      <div class="form-group has-feedback">
+        <input type="text" formControlName="status" class="form-control" placeholder="status"
+        [ngClass]="{ 'is-invalid': submitted && f.status.errors }">
+        <div *ngIf="submitted && f.status.errors" class="invalid-feedback">
+            <div *ngIf="f.status.errors.required">status is required</div>
+        </div>
+      </div>
+      <div class="row">
+          <!-- /.col -->
+          <div>
+            <button type="submit"  class="btn" (click)="onSubmit()">submit</button>
+          </div>
+          <!-- /.col -->
+      </div>
+   </form>       
+  </div>
+</div>
+<!-- /.content-wrapper -->

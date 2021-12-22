@@ -12,7 +12,7 @@ import { SpinnerService } from 'src/app/services/spinner.service';
 })
 export class MainComponent implements OnInit, AfterViewInit {
 
-  result: any;
+  
   constructor(private formBuilder: FormBuilder,
     private router: Router,
     private spinnerService: SpinnerService,
@@ -23,28 +23,7 @@ export class MainComponent implements OnInit, AfterViewInit {
     //this.loadInitaildata();
   }
   ngOnInit(): void {
-    this.loadInitaildata();
-  }
-
-  loadInitaildata() {
-    let response;
-    this.spinnerService.show();
-    this.service.GetInitialData().subscribe(res => {
-      response = res;
-      if (response != undefined) {
-        this.result = response.Result.Registration;
-        console.log(this.result);
-      }
-      this.spinnerService.hide();
-    }, err => {
-      this.spinnerService.hide();
-      this.notificationservice.showError(MessageType.ServerError, "Radix");
-    })
-
-  }
-  moveprofile(RegistrationId: any){
     
-    this.router.navigate(['/layout/dashboard/profile'], { queryParams: { 'Id': RegistrationId}});
   }
 
 }
